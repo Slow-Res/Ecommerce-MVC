@@ -2,8 +2,57 @@
     ViewData["Title"] = "Category Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    
-    <h2>Shall we begin ?!</h2>
+@model List<Category>
+<div class="container">
+    @if (TempData["sucess"] != null)
+    {
+        <div class="row m-4">
+            <span class="text-danger">
+                @TempData["sucess"]
+            </span>
+        </div>
+    }
+
+    <div class="row pt-4" style="text-align:center">
+
+        <div class="col-6 pt-2">
+            <h2 class="text-primary"> Category List</h2>
+        </div>
+
+        <div class="col-6 ">
+            <a asp-action="Create" asp-controller="Category" class="btn btn-primary">
+                <i class="bi bi-plus-square"></i> New Category
+            </a>
+        </div>
+
+    </div>
+
+
+    <table class="table table-bordered table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                <th>Display Order</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Category cat in Model)
+            {
+                <tr>
+                    <td>@cat.Name</td>
+                    <td>@cat.DisplayOrder</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@cat.Id" class="btn btn-primary mx-2"> <i class="bi bi-pencil"></i>  Edit</a>
+
+                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id" class="btn btn-danger mx-2"> <i class="bi bi-trash"></i>  Delete</a>
+                        </div>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
 </div>
