@@ -1,9 +1,7 @@
-﻿using Ecommerce.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Abstractions;
+﻿using Microsoft.EntityFrameworkCore;
+using Models;
 
-namespace Ecommerce.Data
+namespace DataAcess.Data
 {
     public class ApplicationDbContext : DbContext
     {

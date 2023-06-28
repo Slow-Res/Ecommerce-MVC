@@ -1,4 +1,4 @@
-﻿namespace Ecommerce.Models
+﻿namespace Models
 {
     public class Address
     {
@@ -9,6 +9,6 @@
         public string Region { get; set; }
         public string PostalCode { get; set; }
 
-    
+
     }
 }
